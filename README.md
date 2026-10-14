@@ -123,7 +123,7 @@ Install **Git for Windows** if needed (https://git-scm.com/download/win), then c
 ```
 mkdir C:\projects
 cd C:\projects
-git clone https://github.com/<your-account>/ai-crowd-analytics.git
+git clone https://github.com/dangviethadev/ai-crowd-analytics.git
 cd ai-crowd-analytics
 ```
 
