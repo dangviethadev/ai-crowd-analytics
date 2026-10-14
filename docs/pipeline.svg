@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="350" viewBox="0 0 1100 350" role="img" aria-label="Pipeline: input, preprocess, density or detection model, post-process by zone, draw, output">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" style="fill:#5b6578"/>
+    </marker>
+  </defs>
+<style>
+text{fill:#1b2333;font-family:'Segoe UI',Arial,sans-serif}
+.sub{fill:#5b6578;font-size:11.5px;font-family:Consolas,Menlo,monospace}
+.nd{fill:#e7efff;stroke:#2f6fed;stroke-width:1.5}
+.nd2{fill:#e3f6ec;stroke:#1f9d63;stroke-width:1.5}
+.nd3{fill:#fdf3e1;stroke:#b7791f;stroke-width:1.5}
+.ar{stroke:#5b6578;stroke-width:2;fill:none;marker-end:url(#arrow)}
+</style>
+<rect width="1100" height="350" fill="#ffffff"/>
+  <!-- input -->
+  <rect class="nd" x="10" y="120" width="135" height="90" rx="12"/>
+  <text x="77" y="148" text-anchor="middle" font-weight="700" font-size="15">INPUT</text>
+  <text x="77" y="170" text-anchor="middle" font-size="13">Image · Video</text>
+  <text x="77" y="187" text-anchor="middle" font-size="13">· Camera</text>
+  <text class="sub" x="77" y="203" text-anchor="middle">media.py</text>
+  <!-- preprocess -->
+  <rect class="nd" x="180" y="120" width="160" height="90" rx="12"/>
+  <text x="260" y="146" text-anchor="middle" font-weight="700" font-size="15">1. PREPROCESS</text>
+  <text x="260" y="167" text-anchor="middle" font-size="13">resize to ≤ 1280 px</text>
+  <text x="260" y="184" text-anchor="middle" font-size="13">BGR→RGB, normalize</text>
+  <text class="sub" x="260" y="202" text-anchor="middle">analyzer.py</text>
+  <!-- density model -->
+  <rect class="nd2" x="380" y="18" width="180" height="98" rx="12"/>
+  <text x="470" y="44" text-anchor="middle" font-weight="700" font-size="15">2a. DENSITY</text>
+  <text x="470" y="66" text-anchor="middle" font-size="13">VGG19 network</text>
+  <text x="470" y="84" text-anchor="middle" font-size="13">→ density map</text>
+  <text class="sub" x="470" y="104" text-anchor="middle">density.py</text>
+  <!-- detection model -->
+  <rect class="nd3" x="380" y="214" width="180" height="98" rx="12"/>
+  <text x="470" y="240" text-anchor="middle" font-weight="700" font-size="15">2b. DETECTION</text>
+  <text x="470" y="262" text-anchor="middle" font-size="13">YOLOv8n network</text>
+  <text x="470" y="280" text-anchor="middle" font-size="13">→ person boxes</text>
+  <text class="sub" x="470" y="300" text-anchor="middle">detector.py</text>
+  <text x="470" y="170" text-anchor="middle" font-size="12" font-style="italic" style="fill:#5b6578">Mode: one or the other</text>
+  <!-- post-process -->
+  <rect class="nd" x="600" y="112" width="170" height="106" rx="12"/>
+  <text x="685" y="138" text-anchor="middle" font-weight="700" font-size="15">3. POST-PROCESS</text>
+  <text x="685" y="158" text-anchor="middle" font-size="13">total count</text>
+  <text x="685" y="175" text-anchor="middle" font-size="13">count per zone</text>
+  <text x="685" y="192" text-anchor="middle" font-size="13">level Low/Med/High</text>
+  <text class="sub" x="685" y="210" text-anchor="middle">zones.py</text>
+  <!-- draw -->
+  <rect class="nd" x="805" y="120" width="125" height="90" rx="12"/>
+  <text x="867" y="146" text-anchor="middle" font-weight="700" font-size="15">4. DRAW</text>
+  <text x="867" y="167" text-anchor="middle" font-size="13">heatmap, boxes,</text>
+  <text x="867" y="184" text-anchor="middle" font-size="13">zone labels</text>
+  <text class="sub" x="867" y="202" text-anchor="middle">render.py</text>
+  <!-- output -->
+  <rect class="nd" x="965" y="120" width="125" height="90" rx="12"/>
+  <text x="1027" y="146" text-anchor="middle" font-weight="700" font-size="15">OUTPUT</text>
+  <text x="1027" y="167" text-anchor="middle" font-size="13">Desktop app</text>
+  <text x="1027" y="184" text-anchor="middle" font-size="13">Web app</text>
+  <text class="sub" x="1027" y="202" text-anchor="middle">desktop/ · web/</text>
+  <!-- arrows -->
+  <path class="ar" d="M145,165 L178,165"/>
+  <path class="ar" d="M340,165 C362,165 360,67 378,67"/>
+  <path class="ar" d="M340,165 C362,165 360,263 378,263"/>
+  <path class="ar" d="M560,67 C582,67 580,150 598,150"/>
+  <path class="ar" d="M560,263 C582,263 580,180 598,180"/>
+  <path class="ar" d="M770,165 L803,165"/>
+  <path class="ar" d="M930,165 L963,165"/>
+  <path class="ar" d="M1027,210 L1027,340 L77,340 L77,212" stroke-dasharray="6 5"/>
+  <text x="560" y="331" text-anchor="middle" font-size="12.5" style="fill:#5b6578">Video / camera: repeat for the next frame — the model runs about once per second in a background thread</text>
+</svg>

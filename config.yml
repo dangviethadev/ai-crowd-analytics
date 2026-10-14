@@ -1,0 +1,18 @@
+# Camera index (0, 1, ...) or stream URL such as "rtsp://192.168.1.10/stream"
+camera_source: 0
+
+# Seconds of video between two model runs (frames in between reuse the last result)
+density_interval_sec: 1.0
+detection_interval_sec: 0.0
+
+# Frames are shrunk so the longer side is at most this many pixels before inference
+max_side: 1280
+
+# Density level of the total count: count < low -> Low, count < high -> Medium, else High
+level_thresholds:
+  low: 20
+  high: 100
+
+density_weights: weights/crowd_vgg19.pth
+detector_weights: weights/yolov8n.pt
+detector_conf: 0.35

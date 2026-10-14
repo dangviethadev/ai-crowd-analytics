@@ -1,0 +1,25 @@
+# Demo data stays local (videos are too large for git)
+data/*
+!data/README.md
+
+# Model files are downloaded or delivered separately, never committed
+weights/*
+!weights/README.md
+
+# Internal working notes
+docs/plans/
+docs/DESIGN.md
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Ultralytics output
+runs/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
